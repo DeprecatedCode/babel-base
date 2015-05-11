@@ -1,3 +1,7 @@
+/**
+ * @module babel-base/module/gulp-init
+ * @author Nate Ferrero
+ */
 var gulp = require('gulp');
 var babel = require('gulp-babel');
 

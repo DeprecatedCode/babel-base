@@ -1,3 +1,8 @@
+/**
+ * ES6/7 Transpilation Demo - Pets Module
+ * @author Nate Ferrero
+ */
+
 class Mammal {
     constructor(name, age=0) {
         this.name = name;

@@ -1,3 +1,7 @@
+/**
+ * @module babel-base/setup
+ * @author Nate Ferrero
+ */
 var fs = require('fs');
 var path = require('path');
 var readlineSync = require('readline-sync');
