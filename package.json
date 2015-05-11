@@ -2,7 +2,7 @@
   "name": "babel-base",
   "version": "0.0.0",
   "description": "ES6 Base Module Structure",
-  "main": "index.js",
+  "main": "setup.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +11,10 @@
     "url": "https://github.com/SnappLab/babel-base"
   },
   "keywords": [
+    "es7",
     "es6",
     "babel",
+    "harmony",
     "module",
     "base"
   ],
