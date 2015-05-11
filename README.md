@@ -17,8 +17,6 @@ Then, to compile your project:
 gulp
 ```
 
-```
-
 To watch your project and recompile every time a change is detected:
 
 ```bash
