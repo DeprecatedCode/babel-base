@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NateFerrero/babel-base"
+    "url": "https://github.com/SnappLab/babel-base"
   },
   "keywords": [
     "es6",
@@ -19,9 +19,9 @@
   "author": "Nate Ferrero",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NateFerrero/babel-base/issues"
+    "url": "https://github.com/SnappLab/babel-base/issues"
   },
-  "homepage": "https://github.com/NateFerrero/babel-base",
+  "homepage": "https://github.com/SnappLab/babel-base",
   "dependencies": {
     "babel": "^5.2.17",
     "gulp": "^3.8.11",
