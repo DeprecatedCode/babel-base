@@ -3,6 +3,8 @@ ES6/7 Base Module Structure
 
 ## Getting Started
 
+To create a new project using this library, run the following in a console shell:
+
 ```bash
 mkdir my-new-project
 cd my-new-project
