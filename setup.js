@@ -56,7 +56,7 @@ if ('2' in selection) {
     }
     else {
         print('[2] - Ok, creating the gulpfile.js file');
-        fs.writeFileSync(file, ['var gulpInit = require(\'./node_modules/babel-base/module/gulp-init\');',
+        fs.writeFileSync(file, ['var gulpInit = require(\'babel-base/module/gulp-init\');',
                                 'var gulp = gulpInit();',
                                 ''].join('\n'));
         print('      ...done!');
