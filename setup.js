@@ -14,6 +14,40 @@ var ask = function (what) {
     return readlineSync.question(what + ' ');
 };
 
+var conditionallyCreateItem = function (selection, number, file, dir, contents) {
+    if (!(number in selection)) {
+        return;
+    }
+
+    var fullpath = path.join(process.cwd(), file);
+
+    if (fs.existsSync(fullpath)){
+        print('[#1] - The ./#2 #3 already exists, skipping!'
+            .replace('#1', number)
+            .replace('#2', file)
+            .replace('#3', dir ? 'directory' : 'file'));
+    }
+
+    else {
+        print('[#1] - Ok, creating the ./#2 #3'
+            .replace('#1', number)
+            .replace('#2', file)
+            .replace('#3', dir ? 'directory' : 'file'));
+
+        if (dir) {
+            fs.mkdirSync(fullpath);
+        }
+
+        else {
+            contents = Array.isArray(contents) ? contents.concat('').join('\n') : contents;
+            fs.writeFileSync(fullpath, contents);
+        }
+
+        print('      ...done!');
+    }
+    print();
+}
+
 print('Welcome to the babel-base setup utility!');
 print();
 print('Current directory:', '"' + process.cwd() + '"');
@@ -36,45 +70,13 @@ if ('y' in selection) {
 
 print();
 
-if ('1' in selection) {
-    var dir = path.join(process.cwd(), 'src');
-    if (fs.existsSync(dir)){
-        print('[1] - The ./src directory already exists, skipping!');
-    }
-    else {
-        print('[1] - Ok, creating the ./src directory');
-        fs.mkdirSync(dir);
-        print('      ...done!');
-    }
-    print();
-}
+conditionallyCreateItem(selection, '1', 'src', true);
 
-if ('2' in selection) {
-    var file = path.join(process.cwd(), 'gulpfile.js');
-    if (fs.existsSync(file)){
-        print('[2] - The gulpfile.js file already exists, skipping!');
-    }
-    else {
-        print('[2] - Ok, creating the gulpfile.js file');
-        fs.writeFileSync(file, ['var gulpInit = require(\'babel-base/module/gulp-init\');',
-                                'var gulp = gulpInit();',
-                                ''].join('\n'));
-        print('      ...done!');
-    }
-    print();
-}
+conditionallyCreateItem(selection, '2', 'gulpfile.js', false,
+    ['var gulpInit = require(\'babel-base/module/gulp-init\');',
+     'var gulp = gulpInit();']);
 
-if ('3' in selection) {
-    var file = path.join(process.cwd(), '.gitignore');
-    if (fs.existsSync(file)){
-        print('[2] - The .gitignore file already exists, skipping!');
-    }
-    else {
-        print('[2] - Ok, creating the .gitignore file');
-        fs.writeFileSync(file, ['node_modules', 'dist', ''].join('\n'));
-        print('      ...done!');
-    }
-    print();
-}
+conditionallyCreateItem(selection, '3', '.gitignore', false,
+    ['node_modules', 'dist']);
 
 print('Nothing else to do, goodbye!');
